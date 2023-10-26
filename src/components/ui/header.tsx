@@ -1,17 +1,57 @@
-import { MenuIcon, ShoppingCartIcon } from "lucide-react";
+import {
+  HomeIcon,
+  ListOrderedIcon,
+  LogInIcon,
+  MenuIcon,
+  Percent,
+  ShoppingCartIcon,
+} from "lucide-react";
 import { Button } from "./button";
 import { Card } from "./card";
+import { Sheet, SheetContent, SheetHeader, SheetTrigger } from "./sheet";
 
 export const Header = () => {
   return (
     <div>
       <Card className="flex justify-between p-[1.875rem]">
-        <Button size="icon" variant="outline">
-          <MenuIcon />
-        </Button>
+        <Sheet>
+          <SheetTrigger asChild>
+            <Button size="icon" variant="outline">
+              <MenuIcon />
+            </Button>
+          </SheetTrigger>
+
+          <SheetContent side="left">
+            <SheetHeader className="text-left text-lg font-semibold">
+              Menu
+            </SheetHeader>
+
+            <div className="mt-2 flex flex-col gap-2">
+              <Button variant="outline" className="w-full justify-start gap-2">
+                <LogInIcon size={16} />
+                Fazer Login
+              </Button>
+
+              <Button variant="outline" className="w-full justify-start gap-2">
+                <HomeIcon size={16} />
+                Início
+              </Button>
+
+              <Button variant="outline" className="w-full justify-start gap-2">
+                <Percent size={16} />
+                Ofertas
+              </Button>
+
+              <Button variant="outline" className="w-full justify-start gap-2">
+                <ListOrderedIcon size={16} />
+                Catálogo
+              </Button>
+            </div>
+          </SheetContent>
+        </Sheet>
 
         <h1 className="text-lg font-semibold">
-          <span className="from-primary bg-gradient-to-r to-purple-500 bg-clip-text font-black text-transparent">
+          <span className="bg-gradient-to-r from-primary to-purple-500 bg-clip-text font-black text-transparent">
             Devdex
           </span>{" "}
           Store
