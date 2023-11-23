@@ -11,23 +11,23 @@ datasource db {
 }
 
 model Category {
-  id       String     @id @default(uuid())
+  id       String    @id @default(uuid())
   name     String
   slug     String
   imageUrl String
-  products Products[]
+  products Product[]
 }
 
-model Products {
-  id              String   @id @default(uuid())
-  name            String
-  slug            String
-  description     String
-  basePrice       Decimal  @db.Decimal(8, 2)
-  imageUrl        String
-  categoryId      String
-  category        Category @relation(fields: [categoryId], references: [id])
-  discountPercent Int      @default(0)
+model Product {
+  id                 String   @id @default(uuid())
+  name               String
+  slug               String
+  description        String
+  basePrice          Decimal  @db.Decimal(8, 2)
+  imageUrls          String[]
+  categoryId         String
+  category           Category @relation(fields: [categoryId], references: [id])
+  discountPercentage Int      @default(0)
 }
 
 model Account {
