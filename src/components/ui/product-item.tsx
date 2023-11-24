@@ -14,8 +14,8 @@ interface ProductItemProps {
 
 export const ProductItem = ({ product }: ProductItemProps) => {
   return (
-    <div className="flex max-w-[156px] flex-col gap-4">
-      <div className="relative flex h-[170px] w-[156px] items-center justify-center rounded-lg bg-accent">
+    <div className="flex max-w-[170px] flex-col gap-4">
+      <div className="relative flex h-[170px] w-[170px] items-center justify-center rounded-lg bg-accent">
         {product.discountPercentage > 0 && (
           <Badge className="absolute left-3 top-3 px-2 py-[2px]">
             <ArrowDownIcon size={14} />
@@ -38,7 +38,7 @@ export const ProductItem = ({ product }: ProductItemProps) => {
           {product.name}
         </p>
 
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-2 overflow-hidden whitespace-nowrap">
           {product.discountPercentage > 0 ? (
             <>
               <p className="text font-semibold">
