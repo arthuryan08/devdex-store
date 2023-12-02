@@ -56,42 +56,44 @@ export const Cart = () => {
         </ScrollArea>
       </div>
 
-      <div className="flex flex-col gap-3">
-        <Separator />
+      {products.length > 0 && (
+        <div className="flex flex-col gap-3">
+          <Separator />
 
-        <div className="text-sx flex items-center justify-between">
-          <p>Subtotal</p>
-          <p>R$ {subtotal.toFixed(2)}</p>
+          <div className="text-sx flex items-center justify-between">
+            <p>Subtotal</p>
+            <p>R$ {subtotal.toFixed(2)}</p>
+          </div>
+
+          <Separator />
+
+          <div className="text-sx flex items-center justify-between">
+            <p>Entrega</p>
+            <p>GRÁTIS</p>
+          </div>
+
+          <Separator />
+
+          <div className="text-sx flex items-center justify-between">
+            <p>Descontos</p>
+            <p>- R$ {totalDiscount.toFixed(2)}</p>
+          </div>
+
+          <Separator />
+
+          <div className="flex items-center justify-between text-sm font-bold">
+            <p>Descontos</p>
+            <p>R$ {total.toFixed(2)}</p>
+          </div>
+
+          <Button
+            className="mt-7 font-bold uppercase"
+            onClick={handleFinishPurchaseClick}
+          >
+            Finalizar compra
+          </Button>
         </div>
-
-        <Separator />
-
-        <div className="text-sx flex items-center justify-between">
-          <p>Entrega</p>
-          <p>GRÁTIS</p>
-        </div>
-
-        <Separator />
-
-        <div className="text-sx flex items-center justify-between">
-          <p>Descontos</p>
-          <p>- R$ {totalDiscount.toFixed(2)}</p>
-        </div>
-
-        <Separator />
-
-        <div className="flex items-center justify-between text-sm font-bold">
-          <p>Descontos</p>
-          <p>R$ {total.toFixed(2)}</p>
-        </div>
-
-        <Button
-          className="mt-7 font-bold uppercase"
-          onClick={handleFinishPurchaseClick}
-        >
-          Finalizar compra
-        </Button>
-      </div>
+      )}
     </div>
   );
 };
