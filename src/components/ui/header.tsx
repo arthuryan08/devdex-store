@@ -136,7 +136,7 @@ export const Header = () => {
               <ShoppingCartIcon />
             </Button>
           </SheetTrigger>
-          <SheetContent>
+          <SheetContent className="w-[92%]">
             <Cart />
           </SheetContent>
         </Sheet>
