@@ -14,18 +14,13 @@ export const Cart = () => {
   const { products, subtotal, total, totalDiscount } = useContext(CartContext);
 
   const handleFinishPurchaseClick = async () => {
-    if (typeof window !== "undefined") {
-      const baseUrl = window.location.origin;
-      const checkout = await createCheckout(products, baseUrl);
+    const checkout = await createCheckout(products);
 
-      const stripe = await loadStripe(
-        process.env.NEXT_PUBLIC_STRIPE_PUBLIC_KEY,
-      );
+    const stripe = await loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLIC_KEY);
 
-      stripe?.redirectToCheckout({
-        sessionId: checkout.id,
-      });
-    }
+    stripe?.redirectToCheckout({
+      sessionId: checkout.id,
+    });
   };
 
   return (
